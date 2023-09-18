@@ -1,13 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: caalbert <caalbert@student.42sp.org.br>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/18 17:43:18 by caalbert          #+#    #+#             */
+/*   Updated: 2023/09/18 17:43:52 by caalbert         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdio.h>
 
-int main(int c, char **v)
+int	main(int c, char **v)
 {
-  if (c != 2)
-    return (1);
-  //TODO: create an validation to verifies if file has .rt extension
-  printf("Qtd args: %i\n", c);
-  printf("File: %s\n", v[1]);
-
-  return (0);
+	if (c != 2)
+		return (1);
+	printf("Qtd args: %i\n", c);
+	printf("File: %s\n", v[1]);
+	return (0);
 }
-

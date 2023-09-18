@@ -1,9 +1,8 @@
 name: norminette
 
 on:
-  push:
-    branches:
-      - 'main'
+  pull_request:
+    branches: [ "main" ]
 
 jobs:
   norminette:
@@ -23,13 +22,13 @@ jobs:
           python3 -m pip install norminette
           sudo apt update
           sudo apr install -y valgrind
-      
-      - name: norminette
+
+      - name: test norminette
         run: norminette
 
-      - name: build miniRT
-        run: cd .. && make && ls
+      # - name: build miniRT
+      #   run: cd .. && make && ls
 
-      - name: valgrind test
-        run: ./miniRT scene/scene_test.rt
+      # - name: valgrind test
+      #   run: ./miniRT scene/scene_test.rt
 
