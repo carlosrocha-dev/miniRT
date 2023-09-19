@@ -7,9 +7,6 @@ on:
 jobs:
   norminette:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: src
 
     steps:
       - name: checkout
@@ -17,14 +14,17 @@ jobs:
 
       - name: config env
         run: |
-          sudo apr install -y python3
-          python3 -m pip install --upgrade pip setuptools norminette
+          sudo apt-get install -y python3
+          python3 -m pip install --upgrade pip setuptools
           python3 -m pip install norminette
-          sudo apt update
-          sudo apr install -y valgrind
+          sudo apt-get update
+          sudo apt-get install -y valgrind
 
-      - name: test norminette
-        run: norminette
+      - name: test norminette on src
+        run: norminette src/
+
+      - name: test norminette on inc
+        run: norminette inc/
 
       # - name: build miniRT
       #   run: cd .. && make && ls
