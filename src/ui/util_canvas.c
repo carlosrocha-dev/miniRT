@@ -6,7 +6,7 @@
 /*   By: caalbert <caalbert@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 23:09:02 by caalbert          #+#    #+#             */
-/*   Updated: 2023/09/18 23:23:21 by caalbert         ###   ########.fr       */
+/*   Updated: 2023/09/19 10:54:30 by caalbert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,10 @@ void	write_pixels(t_img *img, int width, int height, int color)
 	int		x;
 	int		y;
 
-	x = 0;
 	y = 0;
 	while (y < height)
 	{
+		x = 0;
 		while (x < width)
 		{
 			img_pix_put(img, x, y, color);
