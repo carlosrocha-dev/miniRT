@@ -6,7 +6,7 @@
 #    By: caalbert <caalbert@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/18 20:11:37 by caalbert          #+#    #+#              #
-#    Updated: 2023/09/18 20:21:53 by caalbert         ###   ########.fr        #
+#    Updated: 2023/09/18 23:24:36 by caalbert         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ LOG   := printf "[$(CYAN)$(CHECK)$(RESET)] %s\n"
 ################################################################################
 
 SRC_DIR   := src/
+UI_DIR	  := ui/
 INC_DIR   := inc/
 LIBFT_DIR := lib/libft/
 MLX_DIR   := lib/mlx/
@@ -39,7 +40,10 @@ LIBFT := $(LIBFT_DIR)libft.a
 LIBMLX := $(MLX_DIR)libmlx.a
 LIBS := -L$(LIBFT_DIR) -lft -L$(MLX_DIR) -lmlx -lm -lXext -lX11
 
-SRCS := $(SRC_DIR)main.c
+SRCS 	:=	\
+			$(SRC_DIR)main.c		\
+			$(SRC_DIR)$(UI_DIR)util_canvas.c
+
 OBJS := $(SRCS:.c=.o)
 
 ################################################################################
