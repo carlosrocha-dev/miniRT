@@ -6,20 +6,17 @@
 /*   By: caalbert <caalbert@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 17:43:18 by caalbert          #+#    #+#             */
-/*   Updated: 2023/09/18 23:21:04 by caalbert         ###   ########.fr       */
+/*   Updated: 2023/09/19 08:58:23 by caalbert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/minirt.h"
 
-int	main(int c, char **v)
+int	errors(int argc)
 {
-	t_data	data;
-	int		color;
-	int		list;
+	int	list;
 
-	printf("%s\n", v[1]);
-	if (c != 2)
+	if (argc != 2)
 	{
 		printf("\033[33;1mError\n\033[0m");
 		printf("\t An scene should be indicated! <./miniRT scene/scene.rt>\n");
@@ -28,6 +25,16 @@ int	main(int c, char **v)
 		(void)list;
 		return (0);
 	}
+	return (0);
+}
+
+int	main(int c, char **v)
+{
+	t_data	data;
+	int		color;
+
+	printf("%s\n", v[1]);
+	errors(c);
 	color = 0xff0000;
 	data.mlx_ptr = mlx_init();
 	data.win_ptr = mlx_new_window(data.mlx_ptr, WIN_W, WIN_H, WIN_TITLE);

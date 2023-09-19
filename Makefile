@@ -6,7 +6,7 @@
 #    By: caalbert <caalbert@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/18 20:11:37 by caalbert          #+#    #+#              #
-#    Updated: 2023/09/18 23:24:36 by caalbert         ###   ########.fr        #
+#    Updated: 2023/09/19 10:29:03 by caalbert         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,8 +37,20 @@ vpath %.h $(INC_DIR) $(LIBFT_DIR) $(MLX_DIR)
 vpath %.c $(SRC_DIR)
 
 LIBFT := $(LIBFT_DIR)libft.a
-LIBMLX := $(MLX_DIR)libmlx.a
-LIBS := -L$(LIBFT_DIR) -lft -L$(MLX_DIR) -lmlx -lm -lXext -lX11
+
+ifeq ($(shell uname), Darwin)
+	LIBMLX := $(MLX_DIR)libmlx.dylib
+else
+	LIBMLX := $(MLX_DIR)libmlx.a
+endif
+
+LIBS := -L$(LIBFT_DIR) -lft -L$(MLX_DIR) -lmlx -lm
+
+ifeq ($(shell uname), Darwin)
+	LIBS += -framework OpenGL -framework AppKit
+else
+	LIBS += -lXext -lX11
+endif
 
 SRCS 	:=	\
 			$(SRC_DIR)main.c		\
@@ -60,7 +72,7 @@ endif
 
 all: $(NAME)
 
-run: $(NAME)
+test: $(NAME)
 	@./$(NAME) $(SCENE_DIR)file.rt
 
 valgrind: $(NAME)
@@ -96,4 +108,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all run valgrind gdb clean fclean re
+.PHONY: all test valgrind gdb clean fclean re
