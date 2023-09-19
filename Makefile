@@ -6,7 +6,7 @@
 #    By: caalbert <caalbert@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/18 20:11:37 by caalbert          #+#    #+#              #
-#    Updated: 2023/09/19 10:29:03 by caalbert         ###   ########.fr        #
+#    Updated: 2023/09/19 11:07:48 by caalbert         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,6 +71,9 @@ else
 endif
 
 all: $(NAME)
+
+norma:
+	@norminette $(SRC_DIR) $(INC_DIR)
 
 test: $(NAME)
 	@./$(NAME) $(SCENE_DIR)file.rt

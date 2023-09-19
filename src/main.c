@@ -6,7 +6,7 @@
 /*   By: caalbert <caalbert@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 17:43:18 by caalbert          #+#    #+#             */
-/*   Updated: 2023/09/19 10:50:59 by caalbert         ###   ########.fr       */
+/*   Updated: 2023/09/19 11:44:23 by caalbert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	window(t_data *data)
 	&data->img.line_len, &data->img.endian);
 }
 
-void	fill_img(t_data *data, int color)
+void	fill_img_window(t_data *data, int color)
 {
 	write_pixels(&data->img, WIN_W, WIN_H, color);
 	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img.mlx_img, \
@@ -53,7 +53,7 @@ int	main(int c, char **v)
 	errors(c);
 	color = 0xff0000;
 	window(&data);
-	fill_img(&data, color);
+	fill_img_window(&data, color);
 	mlx_hook(data.win_ptr, 2, 1L << 0, key_hook, &data);
 	mlx_hook(data.win_ptr, 17, 1L << 0, close_hook, &data);
 	mlx_loop(data.mlx_ptr);
