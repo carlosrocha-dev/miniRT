@@ -4,7 +4,6 @@
 
 </div>
 
-<!-- ![CI/CD](https://github.com/carlosrocha-dev/miniRT/actions/workflows/norminette.yml/badge.svg) -->
-[![norminette](https://github.com/carlosrocha-dev/miniRT/actions/workflows/norminette.yml/badge.svg?branch=main)](https://github.com/carlosrocha-dev/miniRT/actions/workflows/main.yml)
+[![norminette](https://github.com/carlosrocha-dev/miniRT/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/carlosrocha-dev/miniRT/actions/workflows/main.yml)
 # miniRT
 This project is an introduction to the beautiful world of Raytracing. Once completed you will be able to render simple Computer-Generated-Images and you will never be afraid of implementing mathematical formulas again.
