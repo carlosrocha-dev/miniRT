@@ -6,7 +6,7 @@
 /*   By: caalbert <caalbert@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 04:39:39 by caalbert          #+#    #+#             */
-/*   Updated: 2023/04/30 21:12:26 by caalbert         ###   ########.fr       */
+/*   Updated: 2023/01/29 04:36:11 by caalbert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,6 @@
 # define HEX_LOWER "0123456789abcdef"
 # define BUFFER_SIZE 1024
 # define MAX_FD 256
-# define INT_MAX 2147483647
-# define INT_MIN -(INT_MAX -1)
 
 /******************************************************************************\
 * STRUCTS
@@ -39,8 +37,7 @@ typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
-	struct s_list 	*prev;
-}					t_list;
+}	t_list;
 
 /******************************************************************************\
 * FUNCTIONS
@@ -48,31 +45,23 @@ typedef struct s_list
 
 int		ft_isascii(int c);
 int		ft_isprint(int c);
-int		ft_abs(int x);
 int		ft_atoi(const char *nptr);
-long	ft_atol(const char *nptr);
 void	ft_bzero(void *s, size_t n);
-void	ft_dlstclear(t_list **list);
-void	ft_dlstdelone(t_list *lst, void (*del)(void *));
 int		ft_isdigit(int c);
 int		ft_isalpha(int c);
 int		ft_isalnum(int c);
-int		ft_isspace(int c);
-int		ft_is_int_limit(long value);
 size_t	ft_strlen(const char *s);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
 char	*ft_strnstr(const char *str, const char *little, size_t len);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
-char	*ft_strcpy(char *dest, const char *src);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 void	*ft_memset(void *s, int c, size_t n);
 void	*ft_memchr(const void *s, int c, size_t n);
 void	*ft_memmove(void *dest, const void *src, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
-int		min(int a, int b);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
 void	*ft_calloc(size_t nmemb, size_t size);

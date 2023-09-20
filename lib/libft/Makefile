@@ -5,82 +5,85 @@
 #                                                     +:+ +:+         +:+      #
 #    By: caalbert <caalbert@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/02/02 10:10:19 by caalbert          #+#    #+#              #
-#    Updated: 2023/04/29 16:30:04 by caalbert         ###   ########.fr        #
+#    Created: 2023/01/16 19:32:05 by caalbert          #+#    #+#              #
+#    Updated: 2023/01/24 23:51:07 by caalbert         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
 
 NAME		= libft.a
 CC			= cc
 CFLAGS		= -Wall -Wextra -Werror
 RM			= rm -f
-SRCS_DIR	= src
-SRCS		= $(wildcard $(SRCS_DIR)/*.c)
-OBJS_DIR	= obj
-OBJS		= $(patsubst $(SRCS_DIR)/%.c, $(OBJS_DIR)/%.o, $(SRCS))
-CYAN			:= \033[1;36m
-YELLOW			:= \033[1;33m
-GREEN			:= \033[1;32m
-RED				:= \033[1;31m
-RESET			:= \033[0m
-#                 # <-- start here         | <-- middle             # <-- stop here
-HEADER_NAME 	= +                   * $(NAME) Compiled!                 #
+SRCS		=	get_next_line.c		\
+				ft_atoi.c			\
+				ft_bzero.c			\
+				ft_calloc.c			\
+				ft_isalpha.c		\
+				ft_isdigit.c		\
+				ft_isalnum.c		\
+				ft_isascii.c		\
+				ft_isprint.c		\
+				ft_itoa.c			\
+				ft_memcpy.c			\
+				ft_memmove.c		\
+				ft_memset.c			\
+				ft_split.c			\
+				ft_strlcat.c		\
+				ft_strchr.c			\
+				ft_strrchr.c		\
+				ft_strdup.c			\
+				ft_striteri.c		\
+				ft_strjoin.c		\
+				ft_strlen.c			\
+				ft_strmapi.c		\
+				ft_strncmp.c		\
+				ft_strlcpy.c		\
+				ft_strnstr.c		\
+				ft_strnstr.c		\
+				ft_strtrim.c		\
+				ft_substr.c			\
+				ft_memchr.c			\
+				ft_memcmp.c			\
+				ft_putchar_fd.c		\
+				ft_putstr_fd.c		\
+				ft_putendl_fd.c		\
+				ft_putnbr_fd.c		\
+				ft_tolower.c		\
+				ft_toupper.c		\
+				ft_lstnew.c			\
+				ft_lstsize.c		\
+				ft_lstadd_front.c	\
+				ft_lstlast.c		\
+				ft_lstadd_back.c	\
+				ft_lstdelone.c		\
+				ft_lstclear.c		\
+				ft_lstiter.c		\
+				ft_lstmap.c			\
+				ft_printf.c 		\
+				return_char.c 		\
+				return_hex.c 		\
+				return_int_dec.c 	\
+				return_ptr.c 		\
+				return_str.c 		\
+				return_unsigned.c 	\
+				return_strlen.c 	\
+				return_putchar.c
+
+OBJS		= $(SRCS:.c=.o)
+
+
 
 all: 		$(NAME)
 
-$(NAME): 	$(LIBFT) $(OBJS)
-			@echo ""
-			@echo "${YELLOW}\t * Compiling ${NAME}\n${CYAN}"
+$(NAME): 	$(OBJS)
 			ar -rcs $(NAME) $(OBJS)
-			@echo ""
-	@echo "${GREEN}\
-\n/* ************************************************************************** */\
-\n/*                                                                            */\
-\n/*            :::      ::::::::                                               */\
-\n/*          :+:      :+:    :+:                                               */\
-\n/*        +:+ +:+         +:+                      DONE...                    */\
-\n/*      +#+  +:+       +#+                                                    */\
-\n/*    +#+#+#+#+#+   +#${HEADER_NAME}*/\
-\n/*         #+#    #+#           By: caalbert <caalbert@student.42sp.org.br>   */\
-\n/*        ###   ########.fr                                                   */\
-\n/*                                                                            */\
-\n/* ************************************************************************** */\n\
-			${RESET}"
-	@echo ""
-
-$(OBJS_DIR)/%.o: $(SRCS_DIR)/%.c
-			mkdir -p $(OBJS_DIR)
-			$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-			@$(RM) $(OBJS)
+			$(RM) $(OBJS)
 
 fclean:		clean
-			@$(RM) $(NAME)
+			$(RM) $(NAME)
 
 re:			fclean all
 
-norm:
-	@echo "${GREEN}\n\n\t * Norminette start (-R Checcker)  * ${RESET}\n\n" ;
-	@ norminette -R checker
-	@echo "${GREEN}\n\n\t * Norminette ok! * ${RESET}\n\n" ;
-
-push:
-	@clear;
-	@echo "\n\n${YELLOW}\t * Starting pushing - Feat(automatic) * ${RESET}" ;
-	@echo "\033[1;36m \n" ;
-	@git add . -v;
-	@git status -b --l;
-	@echo "\033[1;38m \n" ;
-	@git commit -m "Feat(automatic): push all modification on file." -v;
-	@echo "\033[1;36m \n" ;
-	@git push -v;
-	@echo "\n\n${GREEN}\t * Pushing complete * ${RESET}\n\n" ;
-
-pull:
-	@echo "\n\n\${YELLOW}\t * Starting Updated project * ${RESET}" ;
-	@git pull --l
-	@echo "${GREEN}\t * Project Updated  * ${RESET}\n\n" ;
-
-.PHONY:		all clean fclean re norm push pull
+.PHONY:		all clean fclean re
