@@ -6,17 +6,17 @@
 /*   By: caalbert <caalbert@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 17:43:18 by caalbert          #+#    #+#             */
-/*   Updated: 2023/09/19 11:44:23 by caalbert         ###   ########.fr       */
+/*   Updated: 2023/09/19 23:02:34 by caalbert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/minirt.h"
 
-int	errors(int argc)
+int	validate_args(int argc)
 {
 	int	list;
 
-	if (argc != 2)
+	if (argc != 2 || argc == 1)
 	{
 		printf("\033[33;1mError\n\033[0m");
 		printf("\t An scene should be indicated! <./miniRT scene/scene.rt>\n");
@@ -50,7 +50,7 @@ int	main(int c, char **v)
 	int		color;
 
 	printf("%s\n", v[1]);
-	errors(c);
+	validate_args(c);
 	color = 0xff0000;
 	window(&data);
 	fill_img_window(&data, color);

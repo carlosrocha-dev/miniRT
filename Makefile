@@ -6,7 +6,7 @@
 #    By: caalbert <caalbert@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/18 20:11:37 by caalbert          #+#    #+#              #
-#    Updated: 2023/09/19 11:07:48 by caalbert         ###   ########.fr        #
+#    Updated: 2023/09/19 22:19:54 by caalbert         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,6 @@ SRC_DIR   := src/
 UI_DIR	  := ui/
 INC_DIR   := inc/
 LIBFT_DIR := lib/libft/
-MLX_DIR   := lib/mlx/
 SCENE_DIR := scene/
 
 vpath %.h $(INC_DIR) $(LIBFT_DIR) $(MLX_DIR)
@@ -38,19 +37,7 @@ vpath %.c $(SRC_DIR)
 
 LIBFT := $(LIBFT_DIR)libft.a
 
-ifeq ($(shell uname), Darwin)
-	LIBMLX := $(MLX_DIR)libmlx.dylib
-else
-	LIBMLX := $(MLX_DIR)libmlx.a
-endif
-
-LIBS := -L$(LIBFT_DIR) -lft -L$(MLX_DIR) -lmlx -lm
-
-ifeq ($(shell uname), Darwin)
-	LIBS += -framework OpenGL -framework AppKit
-else
-	LIBS += -lXext -lX11
-endif
+LIBS := -L$(LIBFT_DIR) -lft -lmlx -lXext -lX11 -lm
 
 SRCS 	:=	\
 			$(SRC_DIR)main.c		\
@@ -84,7 +71,7 @@ valgrind: $(NAME)
 gdb: $(NAME)
 	gdb ./$(NAME)
 
-$(NAME): $(OBJS) | $(LIBFT) $(LIBMLX)
+$(NAME): $(OBJS) | $(LIBFT)
 	@$(LOG) "Building $@"
 	@$(CC) $^ $(LIBS) -o $@
 
@@ -102,7 +89,6 @@ clean:
 	@$(RM) -r $(OBJS)
 	@$(LOG) "Removing objects"
 	@make clean -C $(LIBFT_DIR) --no-print-directory --silent
-	@make clean -C $(MLX_DIR) --no-print-directory --silent
 
 fclean: clean
 	@$(RM) -r $(NAME)
