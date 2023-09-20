@@ -25,10 +25,3 @@ jobs:
 
       - name: test norminette on inc
         run: norminette inc/
-
-      # - name: build miniRT
-      #   run: cd .. && make && ls
-
-      # - name: valgrind test
-      #   run: ./miniRT scene/scene_test.rt
-
