@@ -1,4 +1,4 @@
-name: norminette main
+name: norminette
 
 on:
   push:
