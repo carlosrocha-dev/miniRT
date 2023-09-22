@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minirt.h                                           :+:      :+:    :+:   */
+/*   mlx_destroy_display.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: caalbert <caalbert@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: mg <mg@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/18 23:15:05 by caalbert          #+#    #+#             */
-/*   Updated: 2023/09/22 11:06:50 by caalbert         ###   ########.fr       */
+/*   Created: 2020/10/03 18:56:35 by mg                #+#    #+#             */
+/*   Updated: 2020/10/04 01:55:35 by mg               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINIRT_H
-# define MINIRT_H
+#include "mlx_int.h"
 
-# include <stdio.h>
-# include <stdlib.h>
-# include <fcntl.h>
-# include <mlx.h>
-# include "../libft/libft.h"
-# include "ui.h"
-# include "validation.h"
-
-#endif
+int	mlx_destroy_display(t_xvar *xvar)
+{
+	XCloseDisplay(xvar->display);
+}

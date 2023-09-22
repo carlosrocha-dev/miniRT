@@ -6,7 +6,7 @@
 /*   By: caalbert <caalbert@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 17:43:18 by caalbert          #+#    #+#             */
-/*   Updated: 2023/09/19 23:02:34 by caalbert         ###   ########.fr       */
+/*   Updated: 2023/09/22 11:28:18 by caalbert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,10 @@ int	main(int c, char **v)
 	t_data	data;
 	int		color;
 
-	printf("%s\n", v[1]);
-	validate_args(c);
 	color = 0xff0000;
+	if (validate_args(c) || has_scene_is_valid(v[1]))
+		return (1);
+	printf("%s\n", v[1]);
 	window(&data);
 	fill_img_window(&data, color);
 	mlx_hook(data.win_ptr, 2, 1L << 0, key_hook, &data);
