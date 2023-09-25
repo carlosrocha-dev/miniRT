@@ -6,27 +6,11 @@
 /*   By: caalbert <caalbert@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 17:43:18 by caalbert          #+#    #+#             */
-/*   Updated: 2023/09/22 11:28:18 by caalbert         ###   ########.fr       */
+/*   Updated: 2023/09/25 10:31:43 by caalbert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/minirt.h"
-
-int	validate_args(int argc)
-{
-	int	list;
-
-	if (argc != 2 || argc == 1)
-	{
-		printf("\033[33;1mError\n\033[0m");
-		printf("\t An scene should be indicated! <./miniRT scene/scene.rt>\n");
-		printf("You can use the following scenes:\n");
-		list = system("ls -1 scene/");
-		(void)list;
-		return (0);
-	}
-	return (0);
-}
 
 void	window(t_data *data)
 {
@@ -49,7 +33,7 @@ int	main(int c, char **v)
 	t_data	data;
 	int		color;
 
-	color = 0xff0000;
+	color = 0x00ff00;
 	if (validate_args(c) || has_scene_is_valid(v[1]))
 		return (1);
 	printf("%s\n", v[1]);

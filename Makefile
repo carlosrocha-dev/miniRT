@@ -6,7 +6,7 @@
 #    By: caalbert <caalbert@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/18 20:11:37 by caalbert          #+#    #+#              #
-#    Updated: 2023/09/19 22:19:54 by caalbert         ###   ########.fr        #
+#    Updated: 2023/09/25 10:53:05 by caalbert         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ LOG   := printf "[$(CYAN)$(CHECK)$(RESET)] %s\n"
 ################################################################################
 
 SRC_DIR   := src/
+OBJ_DIR   := obj/
 UI_DIR	  := ui/
 INC_DIR   := inc/
 LIBFT_DIR := lib/libft/
@@ -37,13 +38,27 @@ vpath %.c $(SRC_DIR)
 
 LIBFT := $(LIBFT_DIR)libft.a
 
-LIBS := -L$(LIBFT_DIR) -lft -lmlx -lXext -lX11 -lm
+LIBS := -L$(LIBFT_DIR) -lft
 
-SRCS 	:=	\
-			$(SRC_DIR)main.c		\
-			$(SRC_DIR)$(UI_DIR)util_canvas.c
+UNAME := $(shell uname -s)
+ifeq ($(UNAME), Linux)
+	MLXFLAGS := -lmlx -Ilmlx -lXext -lX11
+else
+	MLXFLAGS := -L./minilibx/ -lmlx -Ilmlx -L/opt/X11/lib -lXext -lX11 -framework OpenGL -framework AppKit
+endif
 
-OBJS := $(SRCS:.c=.o)
+LIBS += $(MLXFLAGS)
+
+SRCS := \
+	$(SRC_DIR)main.c \
+	$(SRC_DIR)$(UI_DIR)util_canvas.c \
+	$(SRC_DIR)tuples/tuple_basic.c \
+	$(SRC_DIR)tuples/tuple_operations.c \
+	$(SRC_DIR)tuples/tuple_utils.c \
+	$(SRC_DIR)validate/scene_validator.c \
+	$(SRC_DIR)validate/validate.c
+
+OBJS := $(addprefix $(OBJ_DIR), $(SRCS:.c=.o))
 
 ################################################################################
 ##                                 COMPILATION                                ##
@@ -56,6 +71,10 @@ ifdef DEBUG
 else
 	CFLAGS += -Ofast
 endif
+
+define make-object-directory
+	@mkdir -p $(dir $@)
+endef
 
 all: $(NAME)
 
@@ -75,18 +94,16 @@ $(NAME): $(OBJS) | $(LIBFT)
 	@$(LOG) "Building $@"
 	@$(CC) $^ $(LIBS) -o $@
 
-$(SRC_DIR)%.o: $(SRC_DIR)%.c
+$(OBJ_DIR)%.o: %.c
+	$(call make-object-directory)
 	@$(LOG) "Compiling $(notdir $<)"
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(LIBFT):
 	@make -C $(LIBFT_DIR) --no-print-directory
 
-$(LIBMLX):
-	@make -C $(MLX_DIR) --no-print-directory
-
 clean:
-	@$(RM) -r $(OBJS)
+	@$(RM) -r $(OBJ_DIR)
 	@$(LOG) "Removing objects"
 	@make clean -C $(LIBFT_DIR) --no-print-directory --silent
 
@@ -98,3 +115,4 @@ fclean: clean
 re: fclean all
 
 .PHONY: all test valgrind gdb clean fclean re
+
