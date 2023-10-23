@@ -6,7 +6,7 @@
 /*   By: caalbert <caalbert@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 23:15:05 by caalbert          #+#    #+#             */
-/*   Updated: 2023/09/24 10:21:41 by caalbert         ###   ########.fr       */
+/*   Updated: 2023/10/22 21:55:49 by caalbert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,8 @@
 # include "ui.h"
 # include "validation.h"
 # include "camera.h"
+# include "shapes.h"
+# include "ray.h"
+# include "tuples.h"
 
 #endif

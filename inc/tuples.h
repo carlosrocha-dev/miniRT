@@ -6,7 +6,7 @@
 /*   By: caalbert <caalbert@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 17:00:55 by caalbert          #+#    #+#             */
-/*   Updated: 2023/09/24 10:52:11 by caalbert         ###   ########.fr       */
+/*   Updated: 2023/10/22 21:48:14 by caalbert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,4 +64,4 @@ float	magnitude(t_tuple v);
 // Normaliza uma tupla interpretada como vetor para ter magnitude de 1.
 t_tuple	normalize(t_tuple v);
 
-#endif // TUPLE_H
+#endif

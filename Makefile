@@ -6,7 +6,7 @@
 #    By: caalbert <caalbert@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/18 20:11:37 by caalbert          #+#    #+#              #
-#    Updated: 2023/09/25 10:53:05 by caalbert         ###   ########.fr        #
+#    Updated: 2023/10/22 21:03:35 by caalbert         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,7 +51,10 @@ LIBS += $(MLXFLAGS)
 
 SRCS := \
 	$(SRC_DIR)main.c \
+	$(SRC_DIR)init_objects.c \
 	$(SRC_DIR)$(UI_DIR)util_canvas.c \
+	$(SRC_DIR)camera/camera.c \
+	$(SRC_DIR)shapes/sphere.c \
 	$(SRC_DIR)tuples/tuple_basic.c \
 	$(SRC_DIR)tuples/tuple_operations.c \
 	$(SRC_DIR)tuples/tuple_utils.c \
