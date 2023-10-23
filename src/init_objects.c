@@ -6,13 +6,13 @@
 /*   By: caalbert <caalbert@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 19:03:35 by caalbert          #+#    #+#             */
-/*   Updated: 2023/10/22 23:05:38 by caalbert         ###   ########.fr       */
+/*   Updated: 2023/10/22 23:08:28 by caalbert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/minirt.h"
 
-// t_camera	init_camera(float fov, float aspect_ratio, float viewport_width, \
+// t_camera	init_camera(float fov, float aspect_ratio, float viewport_width, 
 // float focal_length)
 // {
 // 	t_camera	camera;
