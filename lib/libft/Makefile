@@ -6,13 +6,13 @@
 #    By: caalbert <caalbert@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/16 19:32:05 by caalbert          #+#    #+#              #
-#    Updated: 2023/01/24 23:51:07 by caalbert         ###   ########.fr        #
+#    Updated: 2023/10/23 08:57:17 by caalbert         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= libft.a
 CC			= cc
-CFLAGS		= -Wall -Wextra -Werror
+CFLAGS		= -Wall -Wextra -Werror -fPIE -g
 RM			= rm -f
 SRCS		=	get_next_line.c		\
 				ft_atoi.c			\
