@@ -6,7 +6,7 @@
 #    By: caalbert <caalbert@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/18 20:11:37 by caalbert          #+#    #+#              #
-#    Updated: 2023/10/22 21:03:35 by caalbert         ###   ########.fr        #
+#    Updated: 2023/10/22 23:14:43 by caalbert         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,7 @@ vpath %.c $(SRC_DIR)
 
 LIBFT := $(LIBFT_DIR)libft.a
 
-LIBS := -L$(LIBFT_DIR) -lft
+LIBS := -L$(LIBFT_DIR) -lft -lm
 
 UNAME := $(shell uname -s)
 ifeq ($(UNAME), Linux)

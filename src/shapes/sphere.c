@@ -6,11 +6,12 @@
 /*   By: caalbert <caalbert@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 20:36:57 by caalbert          #+#    #+#             */
-/*   Updated: 2023/10/22 21:07:42 by caalbert         ###   ########.fr       */
+/*   Updated: 2023/10/23 08:16:21 by caalbert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/minirt.h"
+#include "../inc/tuples.h"
 
 t_sphere	init_sphere(t_tuple center, float radius, int color)
 {
