@@ -59,6 +59,10 @@ int	main(void)
 	t_data		data;
 	t_sphere	sphere;
 
+	memset(&data, 0, sizeof(t_data));
+	window(&data);
+	// if (validate_args(c) || has_scene_is_valid(v[1]))
+	// 	return (1);
 	sphere = init_sphere(point(0, 0, -5), 1, 0xFF0000);
 	render_scene(&data, sphere);
 	return (0);
