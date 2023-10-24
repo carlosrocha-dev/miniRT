@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/tuples.h"
+#include "../../inc/minirt.h"
 
 /*
 Reflect indica um raio de luz atingindo uma superfície e sendo refletido.
@@ -44,4 +44,9 @@ t_tuple	normalize(t_tuple v)
 		exit(EXIT_FAILURE);
 	}
 	return (divide(v, mag));
+}
+
+t_tuple	point_at_parameter(t_ray r, float t)
+	{
+		return add(r.origin, multiply(r.direction, t));
 }

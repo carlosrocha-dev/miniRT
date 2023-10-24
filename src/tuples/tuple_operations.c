@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/tuples.h"
+#include "../../inc/minirt.h"
 
 // Multiplica cada componente de uma tupla por um valor escalar.
 t_tuple	multiply(t_tuple a, float scalar)

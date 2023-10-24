@@ -28,6 +28,8 @@ int	hit_sphere(t_sphere sphere, t_ray ray)
 	t_tuple	sphere_to_ray;
 	t_tuple	equation;
 	float	discriminant;
+	float	t1;
+	float	t2;
 
 	sphere_to_ray = subtract(ray.origin, sphere.center);
 	equation.x = dot(ray.direction, ray.direction);
@@ -35,5 +37,12 @@ int	hit_sphere(t_sphere sphere, t_ray ray)
 	equation.z = dot(sphere_to_ray, sphere_to_ray) - \
 	(sphere.radius * sphere.radius);
 	discriminant = equation.y * equation.y - 4 * equation.x * equation.z;
-	return (discriminant > 0);
+
+	if (discriminant < 0)
+		return (0);
+
+	t1 = (-equation.y + sqrt(discriminant)) / (2.0 * equation.x);
+	t2 = (-equation.y - sqrt(discriminant)) / (2.0 * equation.x);
+
+	return (t1 > 0 && t2 > 0);
 }

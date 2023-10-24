@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/tuples.h"
+#include "../../inc/minirt.h"
 
 t_tuple	tuple(float x, float y, float z, float w)
 {

@@ -12,7 +12,7 @@
 
 #include "../inc/minirt.h"
 
-// t_camera	init_camera(float fov, float aspect_ratio, float viewport_width, 
+// t_camera	init_camera(float fov, float aspect_ratio, float viewport_width,
 // float focal_length)
 // {
 // 	t_camera	camera;
@@ -41,4 +41,19 @@ t_ray	init_ray(t_tuple origin, t_tuple direction)
 	ray.origin = origin;
 	ray.direction = direction;
 	return (ray);
+}
+
+int diffuse_shading(t_tuple normal, t_tuple light_dir, int base_color)
+{
+    float diffuse = dot(normal, light_dir);
+    if (diffuse < 0.0)
+        diffuse = 0.0;
+    int intensity = (int)(255 * diffuse);
+
+    // Multiplicando a cor base pela intensidade para obter cor iluminada
+    int red = (base_color >> 16 & 0xFF) * intensity;
+    int green = (base_color >> 8 & 0xFF) * intensity;
+    int blue = (base_color & 0xFF) * intensity;
+
+    return ((red << 16) + (green << 8) + blue);
 }

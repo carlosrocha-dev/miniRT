@@ -21,6 +21,13 @@ typedef struct s_ray
 	t_tuple	direction;
 }	t_ray;
 
+typedef struct s_light {
+	t_tuple position; // Posição da luz
+	int color; // Cor da luz
+	float intensity; // Intensidade da luz
+} t_light;
+
 t_ray	init_ray(t_tuple origin, t_tuple direction);
+int diffuse_shading(t_tuple normal, t_tuple light_dir, int base_color);
 
 #endif
