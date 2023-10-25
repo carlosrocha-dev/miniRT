@@ -13,7 +13,9 @@
 #ifndef RAY_H
 # define RAY_H
 
-# include "tuples.h"
+// NOTE: resolves circular dependence
+struct s_tuple;
+typedef struct s_tuple t_tuple;
 
 typedef struct s_ray
 {
@@ -28,6 +30,7 @@ typedef struct s_light {
 } t_light;
 
 t_ray	init_ray(t_tuple origin, t_tuple direction);
-int diffuse_shading(t_tuple normal, t_tuple light_dir, int base_color);
+int		diffuse_shading(t_tuple normal, t_tuple light_dir, int base_color);
+int		mult_color(int color, float intensity);
 
 #endif

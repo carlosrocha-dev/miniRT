@@ -21,7 +21,8 @@ typedef struct s_camera
 	float	focal_length;
 }	t_camera;
 
-t_camera	init_camera(float fov, float aspect_ratio, \
-float viewport_width, float focal_length);
+t_camera	init_camera(float fov, float aspect_ratio, float viewport_width, float focal_length);
+int			clamp(int val, int min, int max);
+int			mult_color(int color, float intensity);
 
 #endif

@@ -23,7 +23,7 @@ t_sphere	init_sphere(t_tuple center, float radius, int color)
 	return (sphere);
 }
 
-int	hit_sphere(t_sphere sphere, t_ray ray)
+int	hit_sphere(t_sphere sphere, t_ray ray, float *t)
 {
 	t_tuple	sphere_to_ray;
 	t_tuple	equation;
@@ -44,5 +44,12 @@ int	hit_sphere(t_sphere sphere, t_ray ray)
 	t1 = (-equation.y + sqrt(discriminant)) / (2.0 * equation.x);
 	t2 = (-equation.y - sqrt(discriminant)) / (2.0 * equation.x);
 
-	return (t1 > 0 && t2 > 0);
+	if (t1 > 0 && t1 < t2)
+		*t = t1;
+	else if (t2 > 0)
+		*t = t2;
+	else
+		return (0);
+
+	return (1);
 }

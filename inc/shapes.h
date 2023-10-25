@@ -13,9 +13,6 @@
 #ifndef SHAPES_H
 # define SHAPES_H
 
-# include "tuples.h"
-# include "ray.h"
-
 typedef struct s_sphere
 {
 	t_tuple	center;
@@ -24,6 +21,6 @@ typedef struct s_sphere
 }	t_sphere;
 
 t_sphere	init_sphere(t_tuple center, float radius, int color);
-int			hit_sphere(t_sphere sphere, t_ray ray);
+int			hit_sphere(t_sphere sphere, t_ray ray, float *t);
 
 #endif

@@ -13,9 +13,8 @@
 #ifndef TUPLES_H
 # define TUPLES_H
 
-# include <stdio.h>
-# include <stdlib.h>
-# include <math.h>
+
+struct s_ray;
 
 typedef struct s_tuple
 {
@@ -63,5 +62,9 @@ float	magnitude(t_tuple v);
 
 // Normaliza uma tupla interpretada como vetor para ter magnitude de 1.
 t_tuple	normalize(t_tuple v);
+
+//
+t_tuple point_at_parameter(struct s_ray r, float t);
+
 
 #endif

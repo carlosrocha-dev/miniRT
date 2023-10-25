@@ -55,7 +55,7 @@ SRCS := \
 	$(SRC_DIR)$(UI_DIR)util_canvas.c \
 	$(SRC_DIR)$(UI_DIR)aspect_ratio.c \
 	$(SRC_DIR)camera/camera.c \
-	$(SRC_DIR)camera/light   .c \
+	$(SRC_DIR)camera/light.c \
 	$(SRC_DIR)shapes/sphere.c \
 	$(SRC_DIR)tuples/tuple_basic.c \
 	$(SRC_DIR)tuples/tuple_operations.c \

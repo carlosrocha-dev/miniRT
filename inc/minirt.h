@@ -17,13 +17,14 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <fcntl.h>
+# include <math.h>
 # include <mlx.h>
 # include "../lib/libft/libft.h"
+# include "tuples.h"
+# include "ray.h"
 # include "ui.h"
 # include "validation.h"
 # include "camera.h"
 # include "shapes.h"
-# include "ray.h"
-# include "tuples.h"
 
 #endif
